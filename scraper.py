@@ -7,8 +7,9 @@ Prices = []
 Description = []
 Reviews = []
 
-for i in range(2, 12):
-    url = "https://www.flipkart.com/search?q=mobiles+under+50000&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&page="+str(i)
+for i in range(1, 12):
+
+    url = "https://www.flipkart.com/search?q=mobiles+under+50000&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&page="+str(0)
     r = requests.get(url)
     soup = BeautifulSoup(r.text, "lxml")
     box = soup.find("div", class_ = "_1YokD2 _3Mn1Gg")
@@ -39,7 +40,7 @@ for i in range(2, 12):
 
     df = pd.DataFrame({"Product Name": Product_name, "Prices": Prices, "Description": Description, "Reviews": Reviews})
 
-df.to_csv("C:/Users/shada/Desktop/flipkart_mobiles_under_50000.csv")
+df.to_csv("./flipkart.csv")
 
 
 
